@@ -34,10 +34,10 @@
   },
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.637.0",
-    "@backstage/backend-plugin-api": "^1.1.1",
+    "@backstage/backend-plugin-api": "^1.2.0",
     "agentkeepalive": "^4.2.1",
     "aws4": "^1.13.1",
-    "express": "^4.17.1",
+    "express": "^4.22.0",
     "express-promise-router": "^4.1.0",
     "node-fetch": "^2.6.7"
   },
