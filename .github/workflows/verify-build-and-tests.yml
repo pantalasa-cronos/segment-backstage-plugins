@@ -1,44 +1,33 @@
 name: Verify build and tests
-
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
-
+    pull_request:
+        branches: [main]
+    push:
+        branches: [main]
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false # dont have failures in one node version cancel tests in another
-      matrix:
-        node-version: [20.x] # TODO: add 22.x after upgrade to backstage 1.33 https://github.com/backstage/backstage/issues/27626#issuecomment-2476133326
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: '0'
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Lint
-        run: yarn lint
-
-      - name: Run prettier
-        run: yarn prettier --check .
-
-      - name: Run tsc
-        run: yarn tsc
-
-      - name: Run build
-        run: yarn build
-
-      - name: Run test
-        run: yarn test
+    verify:
+        runs-on: localdev-e2e-test-1775919687-main
+        strategy:
+            fail-fast: false # dont have failures in one node version cancel tests in another
+            matrix:
+                node-version: [20.x] # TODO: add 22.x after upgrade to backstage 1.33 https://github.com/backstage/backstage/issues/27626#issuecomment-2476133326
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: '0'
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                node-version: ${{ matrix.node-version }}
+            - name: Install dependencies
+              run: yarn install
+            - name: Lint
+              run: yarn lint
+            - name: Run prettier
+              run: yarn prettier --check .
+            - name: Run tsc
+              run: yarn tsc
+            - name: Run build
+              run: yarn build
+            - name: Run test
+              run: yarn test
