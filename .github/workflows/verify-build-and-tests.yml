@@ -8,7 +8,7 @@ on:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: cronos
 
     strategy:
       fail-fast: false # dont have failures in one node version cancel tests in another
