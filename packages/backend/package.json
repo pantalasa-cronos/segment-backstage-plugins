@@ -28,7 +28,7 @@
     "@backstage/plugin-search-backend": "^1.8.1",
     "@backstage/plugin-search-backend-module-catalog": "^0.3.0",
     "@backstage/plugin-search-backend-module-techdocs": "^0.3.5",
-    "@backstage/plugin-techdocs-backend": "^1.11.5",
+    "@backstage/plugin-techdocs-backend": "^2.0.0",
     "@segment/backstage-plugin-proxy-sigv4-backend": "link:../../plugins/proxy-sigv4-backend",
     "app": "link:../app",
     "better-sqlite3": "^8.0.0",
